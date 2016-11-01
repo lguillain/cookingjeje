@@ -6,7 +6,7 @@ to run the server on your machine,
 <ol>
 <li>run clone this repository to your machine</li>
 <li>make sure you have installed Node.Js</li>
-<li>install loopback in your local repo using npm install -g strongloop</li>
-<li>in your local repo run npm install</li>
-<li>start the server using node . or slc start</li>
+<li>install loopback in your local repo using <code>npm install -g strongloop</code></li>
+<li>in your local repo run <code>npm install</code></li>
+<li>start the server using <code>node .</code> or <code>slc start</code></li>
 </ol>
