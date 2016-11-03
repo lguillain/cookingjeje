@@ -42,6 +42,16 @@ angular.module('cookingjeje', ['ionic', 'cookingjeje.controllers', 'cookingjeje.
     }
   })
 
+    .state('app.createevents', {
+      url: '/createevents',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/createevents.html',
+          controller: 'AppCtrl'
+        }
+      }
+    })
+
   .state('app.myinfo', {
       url: '/myinfo',
       views: {
@@ -56,7 +66,7 @@ angular.module('cookingjeje', ['ionic', 'cookingjeje.controllers', 'cookingjeje.
       views: {
         'mainContent': {
           templateUrl: 'templates/myevents.html',
-          controller: 'IndexController'
+          controller: 'MenuController'
         }
       }
     })

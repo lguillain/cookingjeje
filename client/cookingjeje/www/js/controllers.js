@@ -16,33 +16,35 @@ angular.module('cookingjeje.controllers', [])
   $ionicModal.fromTemplateUrl('templates/createevent.html', {
     scope: $scope
   }).then(function(modal) {
-    $scope.modal = modal;
+    $scope.creationForm = modal;
   });
 
   // Triggered in the login modal to close it
   $scope.closeCreation = function() {
-    $scope.modal.hide();
+    $scope.creationForm.hide();
   };
 
   // Open the login modal
-  $scope.event = function() {
-    $scope.modal.show();
+  $scope.create = function() {
+    $scope.creationForm.show();
   };
 
   // Perform the login action when the user submits the login form
   $scope.doCreation = function() {
-    console.log('Doing login', $scope.loginData);
+
+
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {
-      $scope.closeLogin();
+      $scope.closeCreation();
     }, 1000);
   };
 })
 
-  .controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
+  .controller('MenuController', ['$scope', 'menuFactory', 'baseURL', '$ionicListDelegate', function($scope, menuFactory, baseURL, $ionicListDelegate) {
 
+    $scope.baseURL = baseURL;
     $scope.tab = 1;
     $scope.filtText = '';
     $scope.showDetails = false;

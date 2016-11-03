@@ -2,41 +2,42 @@
   <ion-header-bar>
     <h1 class="title">Create Event</h1>
     <div class="buttons">
-      <button class="button button-clear" ng-click="closeCreation()">Close</button>
+      <button class="button button-clear button-stable icon-left ion-android-close" ng-click="closeCreation()"></button>
     </div>
   </ion-header-bar>
   <ion-content>
     <form id="creationForm" name="creationForm" ng-submit="doCreation()">
       <div class="list">
-        <label class="item item-input item-select">
-          <span class="input-label">Number of Guests</span>
-          <select ng-model="event.numGuests">
-            <option ng-repeat="n in [1,2,3,4,5,6]" value="{{n}}">{{n}}</option>
+        <label class="item item-input">
+          <input type="text" placeholder="Event Name" ng-model="event.name">
+        </label>
+        <label class="item item-input">
+          <input type="date" placeholder="Date" ng-model="event.date">
+        </label>
+        <label class="item item-input">
+        <input type="time" placeholder="Time" ng-model="event.time"
+               name="eventtime" min="07:00:00" max="23:00:00">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Location" ng-model="event.location">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Max. Participants</span>
+          <select ng-model="event.max">
+            <option value="" disabled selected>Please Choose...</option>
+            <option ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" value="{{n}}">{{n}}</option>
           </select>
         </label>
-        <li class="item item-toggle">
-          Smoking?
-          <label class="toggle toggle-assertive">
-            <input type="checkbox" ng-model="reservation.smoking">
-            <div class="track">
-              <div class="handle">
-              </div>
-            </div>
-          </label>
-        </li>
         <label class="item item-input">
-          <span class="input-label">Date</span>
-          <input type="date" ng-model="reservation.date">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Time</span>
-          <input type="time" ng-model="reservation.time"
-                 name="reservetime" min="11:00:00" max="21:00:00">
+          <textarea placeholder="Description" ng-model="event.description"></textarea>
         </label>
         <label class="item">
-          <button class="button button-block button-positive" type="submit">Reserve</button>
+          <button class="button button-block button-assertive" type="submit">Create Event</button>
         </label>
       </div>
     </form>
   </ion-content>
 </ion-modal-view>
+
+
+
