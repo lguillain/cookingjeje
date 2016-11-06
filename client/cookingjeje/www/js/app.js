@@ -66,7 +66,7 @@ angular.module('cookingjeje', ['ionic', 'cookingjeje.controllers', 'cookingjeje.
       views: {
         'mainContent': {
           templateUrl: 'templates/myevents.html',
-          controller: 'MenuController'
+          controller: 'EventController'
         }
       }
     })

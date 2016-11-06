@@ -186,4 +186,38 @@ angular.module('cookingjeje.controllers', [])
 
   }])
 
+  .controller('EventController', ['$scope', 'menuFactory', 'baseURL', '$ionicListDelegate', function($scope, menuFactory, baseURL, $ionicListDelegate) {
+
+    $scope.baseURL = baseURL;
+    $scope.tab = 1;
+    $scope.filtText = '';
+    $scope.showDetails = false;
+    $scope.showMenu = false;
+    $scope.message = "Loading ...";
+
+    menuFactory.getEvents().query(
+      function(response) {
+        $scope.events = response;
+        $scope.showMenu = true;
+      },
+      function(response) {
+        $scope.message = "Error: "+response.status + " " + response.statusText;
+      });
+
+    $scope.toggleDetails = function() {
+      $scope.showDetails = !$scope.showDetails;
+    };
+  }])
+
+  .filter('myEventFilter', function () {
+    return function (events) {
+      var out = [];
+      for (var i = 0; i < events.length; i++) {
+          if (events[i].owner === "dennis")
+            out.push(events[i]);
+        }
+      return out;
+    }});
+
+
 ;

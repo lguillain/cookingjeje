@@ -28,6 +28,12 @@ angular.module('cookingjeje.services', ['ngResource'])
                     return   $resource(baseURL+"promotions/:id");;
                 }
 
+          this.getEvents = function(){
+
+            return $resource(baseURL + "events/:id");
+          };
+
+
 
         }])
 

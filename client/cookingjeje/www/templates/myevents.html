@@ -13,14 +13,13 @@
   </div>
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="dish in dishes | filter:{category: filtText}" href="#/app/menu/{{dish._id}}" class="item-thumbnail-left">
-        <img ng-src="{{baseURL+dish.image}}">
-        <h2>{{dish.name}}
-          <span style="font-size:75%">{{dish.price/100 | currency}}</span>
-          <span class="badge badge-assertive">{{dish.label}}</span></h2>
-        <p>{{dish.description}}</p>
+      <ion-item ng-repeat="event in events | myEventFilter:events" class="item-thumbnail-left">
+        <img ng-src="{{baseURL+event.image}}">
+        <h2>{{event.name}}</h2>
+        <p>Host: {{event.owner}}</p>
+        <p>{{event.description}}</p>
         <ion-option-button class="button-assertive icon ion-plus-circled"
-                           ng-click="addFavorite(dish._id)">
+                           ng-click="addFavorite(event._id)">
         </ion-option-button>
       </ion-item>
     </ion-list>
