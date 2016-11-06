@@ -1,26 +1,20 @@
 <ion-view view-title="Menu">
-  <div class="tabs-striped tabs-color-royal">
-    <ul class="tabs">
-      <li ng-class="{active:isSelected(1)}" class="tab-item">
-        <a ng-click="select(1)">The Menu</a></li>
-      <li ng-class="{active:isSelected(2)}" class="tab-item">
-        <a ng-click="select(2)">Appetizers</a></li>
-      <li ng-class="{active:isSelected(3)}" class="tab-item">
-        <a ng-click="select(3)">Mains</a></li>
-      <li ng-class="{active:isSelected(4)}" class="tab-item">
-        <a  ng-click="select(4)">Desserts</a></li>
-    </ul>
-  </div>
+  <ion-nav-buttons side="secondary">
+    <div class="buttons">
+      <button class="button button-icon icon ion-ios-minus-outline"
+              ng-click="toggleDelete()"></button>
+    </div>
+  </ion-nav-buttons>
   <ion-content>
-    <ion-list>
+    <ion-list show-delete="shouldShowDelete">
       <ion-item ng-repeat="event in events | myEventFilter:events" class="item-thumbnail-left">
         <img ng-src="{{baseURL+event.image}}">
         <h2>{{event.name}}</h2>
         <p>Host: {{event.owner}}</p>
         <p>{{event.description}}</p>
-        <ion-option-button class="button-assertive icon ion-plus-circled"
-                           ng-click="addFavorite(event._id)">
-        </ion-option-button>
+        <ion-delete-button class="ion-minus-circled"
+                           ng-click="deleteFavorite(event.id)">
+        </ion-delete-button>
       </ion-item>
     </ion-list>
   </ion-content>

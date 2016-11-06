@@ -189,6 +189,7 @@ angular.module('cookingjeje.controllers', [])
   .controller('EventController', ['$scope', 'menuFactory', 'baseURL', '$ionicListDelegate', function($scope, menuFactory, baseURL, $ionicListDelegate) {
 
     $scope.baseURL = baseURL;
+    $scope.shouldShowDelete = false;
     $scope.tab = 1;
     $scope.filtText = '';
     $scope.showDetails = false;
@@ -203,6 +204,11 @@ angular.module('cookingjeje.controllers', [])
       function(response) {
         $scope.message = "Error: "+response.status + " " + response.statusText;
       });
+
+    $scope.toggleDelete = function () {
+      $scope.shouldShowDelete = !$scope.shouldShowDelete;
+      console.log($scope.shouldShowDelete);
+    }
 
     $scope.toggleDetails = function() {
       $scope.showDetails = !$scope.showDetails;
