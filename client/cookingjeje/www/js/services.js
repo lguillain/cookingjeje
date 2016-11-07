@@ -30,7 +30,7 @@ angular.module('cookingjeje.services', ['ngResource'])
 
           this.getEvents = function(){
 
-            return $resource(baseURL + "events/:id");
+            return $resource(baseURL + "api/Events/:id");
           };
 
 
