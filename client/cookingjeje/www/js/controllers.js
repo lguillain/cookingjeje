@@ -219,7 +219,7 @@ angular.module('cookingjeje.controllers', [])
     return function (events) {
       var out = [];
       for (var i = 0; i < events.length; i++) {
-          if (events[i].owner === "dennis")
+          if (events[i].admin === "dennis")
             out.push(events[i]);
         }
       return out;

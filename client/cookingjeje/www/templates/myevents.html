@@ -10,7 +10,7 @@
       <ion-item ng-repeat="event in events | myEventFilter:events" class="item-thumbnail-left">
         <img ng-src="{{baseURL+event.image}}">
         <h2>{{event.name}}</h2>
-        <p>Host: {{event.owner}}</p>
+        <p>Host: {{event.admin}}</p>
         <p>{{event.description}}</p>
         <ion-delete-button class="ion-minus-circled"
                            ng-click="deleteFavorite(event.id)">
