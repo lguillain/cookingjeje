@@ -19,10 +19,6 @@
       "required": true,
       "default": 5
     },
-    "admin": {
-      "type": "string",
-      "required": true
-    },
     "image": {
       "type": "string"
     },
@@ -33,16 +29,31 @@
     "date": {
       "type": "date",
       "required": true
-    },
-    "categories": {
-      "type": [
-        "string"
-      ],
-      "required": true
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "comments": {
+      "type": "hasMany",
+      "model": "Comment",
+      "foreignKey": ""
+    },
+    "participants": {
+      "type": "hasMany",
+      "model": "Client",
+      "foreignKey": ""
+    },
+    "categories": {
+      "type": "hasMany",
+      "model": "Category",
+      "foreignKey": ""
+    },
+    "admin": {
+      "type": "hasOne",
+      "model": "Client",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
