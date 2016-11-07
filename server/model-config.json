@@ -21,27 +21,33 @@
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "MongoDB",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "MongoDB",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "MongoDB",
     "public": false
   },
   "Event": {
-    "dataSource": "db",
+    "dataSource": "MongoDB",
     "public": true
   },
   "Comment": {
-    "dataSource": "db",
+    "dataSource": "MongoDB",
     "public": true
   },
-  "member": {
-    "dataSource": "db",
+  "Category": {
+    "dataSource": "MongoDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Client": {
+    "dataSource": "MongoDB",
     "public": true
   }
 }
