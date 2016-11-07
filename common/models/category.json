@@ -1,23 +1,13 @@
 {
-  "name": "member",
+  "name": "Category",
   "base": "PersistedModel",
-  "idInjection": true,
+  "strict": false,
+  "idInjection": false,
   "options": {
     "validateUpsert": true
   },
   "properties": {
     "name": {
-      "type": "string",
-      "required": true
-    },
-    "description": {
-      "type": "string"
-    },
-    "OAuth": {
-      "type": "string",
-      "required": true
-    },
-    "image": {
       "type": "string",
       "required": true
     }
