@@ -15,7 +15,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "likedEvents": {
+      "type": "hasMany",
+      "model": "Event",
+      "foreignKey": ""
+    },
+    "joinedEvents": {
+      "type": "hasMany",
+      "model": "Event",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }
