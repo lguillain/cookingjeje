@@ -37,7 +37,7 @@ angular.module('cookingjeje', ['ionic', 'cookingjeje.controllers', 'cookingjeje.
     views: {
       'mainContent': {
         templateUrl: 'templates/home.html',
-        controller: 'IndexController'
+        controller: 'EventController'
       }
     }
   })

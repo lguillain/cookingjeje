@@ -16,18 +16,6 @@ angular.module('cookingjeje.services', ['ngResource'])
 
             ];
 
-                this.getDishes = function(){
-
-                    return $resource(baseURL+"dishes/:id",null,  {'update':{method:'PUT' }});
-
-                };
-
-                // implement a function named getPromotion
-                // that returns a selected promotion.
-                this.getPromotion = function() {
-                    return   $resource(baseURL+"promotions/:id");;
-                }
-
           this.getEvents = function(){
 
             return $resource(baseURL + "api/Events/:id");
