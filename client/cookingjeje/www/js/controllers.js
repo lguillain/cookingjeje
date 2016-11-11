@@ -33,6 +33,12 @@ angular.module('cookingjeje.controllers', [])
   $scope.doCreation = function() {
 
 
+    $scope.Events = new Entry(); //this object now has a $save() method
+    $scope.menuFactory.getEvents().$save($scope.event);
+
+
+     $scope.event = {name:"German Bratwurst", description:"Das ist die erste tolle german Bratwurst", maxParticipants:15, image:'../img/bratwurst.png', location:"Hall III", date:'2016-11-09T00:00:00.000Z', id:55, clientId:0};
+
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
