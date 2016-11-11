@@ -57,7 +57,7 @@ angular.module('cookingjeje', ['ionic', 'cookingjeje.controllers', 'cookingjeje.
       views: {
         'mainContent': {
           templateUrl: 'templates/myinfo.html',
-          controller: 'IndexController'
+          controller: 'EventController'
         }
       }
     })
@@ -76,7 +76,7 @@ angular.module('cookingjeje', ['ionic', 'cookingjeje.controllers', 'cookingjeje.
       views: {
         'mainContent': {
           templateUrl: 'templates/joinedevents.html',
-          controller: 'IndexController'
+          controller: 'EventController'
         }
       }
     })
@@ -86,7 +86,7 @@ angular.module('cookingjeje', ['ionic', 'cookingjeje.controllers', 'cookingjeje.
       views: {
         'mainContent': {
           templateUrl: 'templates/likedevents.html',
-          controller: 'IndexController'
+          controller: 'EventController'
         }
       }
     })

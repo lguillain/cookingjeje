@@ -5,7 +5,7 @@
       <button class="button button-clear button-stable icon-left ion-android-close" ng-click="closeCreation()"></button>
     </div>
   </ion-header-bar>
-  <ion-content>
+  <ion-content ng-controller="EventController">
     <form id="creationForm" name="creationForm" ng-submit="doCreation()">
       <div class="list">
         <label class="item item-input">
