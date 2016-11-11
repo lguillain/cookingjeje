@@ -1,6 +1,6 @@
 angular.module('cookingjeje.controllers', [])
 
-  .controller('AppCtrl', function($scope, $ionicModal) {
+  .controller('AppCtrl', ['menuFactory', '$scope', '$ionicModal', 'baseURL', '$state', function(menuFactory, $scope, $ionicModal, baseURL, $state) {
 
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -8,6 +8,8 @@ angular.module('cookingjeje.controllers', [])
     // listen for the $ionicView.enter event:
     //$scope.$on('$ionicView.enter', function(e) {
     //});
+
+    $scope.baseURL = baseURL;
 
     // Form data for the login modal
     $scope.event = {};
@@ -22,6 +24,7 @@ angular.module('cookingjeje.controllers', [])
     // Triggered in the login modal to close it
     $scope.closeCreation = function() {
       $scope.creationForm.hide();
+      console.log('closeCreation');
     };
 
     // Open the login modal
@@ -34,13 +37,18 @@ angular.module('cookingjeje.controllers', [])
       $scope.doCreation = function() {
         menuFactory.getEvents().save($scope.event);
         $scope.event = {
-          name:"German Bratwurst1", description:"Das ist die erste tolle german Bratwurst",
-          maxParticipants:15, image:'../img/bratwurst.png', location:"Hall III", date:'2016-11-09T00:00:00.000Z',
-          id:56, clientId:0};
+          name:$scope.event.name, description:$scope.event.description,
+          maxParticipants:$scope.event.maxParticipants, image:'../img/bratwurst.png', location:$scope.event.location, date:$scope.event.date,
+          clientId:0};
 
+        $state.go($state.current, {}, {reload: true});
+
+        console.log($scope.event);
+
+        $scope.closeCreation();
       };
 
-  })
+  }])
 
 /*  .controller('MenuController', ['$scope', 'menuFactory', 'baseURL', '$ionicListDelegate', function($scope, menuFactory, baseURL, $ionicListDelegate) {
 
@@ -108,7 +116,7 @@ angular.module('cookingjeje.controllers', [])
   }])*/
 
 
-  .controller('EventController', ['$scope', 'menuFactory', 'baseURL', function($scope, menuFactory, baseURL) {
+  .controller('EventController', ['$scope', '$state', 'menuFactory', 'baseURL', '$ionicPopup', function($scope, $state, menuFactory, baseURL, $ionicPopup) {
 
     $scope.baseURL = baseURL;
     $scope.shouldShowDelete = false;
@@ -131,12 +139,31 @@ angular.module('cookingjeje.controllers', [])
       console.log($scope.shouldShowDelete);
     }
 
-    $scope.toggleDetails = function() {
-      $scope.showDetails = !$scope.showDetails;
-    };
+    $scope.deleteEvent = function (eventid) {
+
+      var confirmPopup = $ionicPopup.confirm({
+        title: '<h3>Confirm Delete</h3>',
+        template: '<p>Are you sure you want to delete this event?</p>'
+      });
 
 
+      confirmPopup.then(function (res) {
+        if (res) {
+          console.log('Ok to delete');
+          menuFactory.getEvents().delete({id: eventid});
 
+          $state.go($state.current, {}, {reload: true});
+          $window.location.reload();
+          console.log('reloaded');
+        } else {
+          console.log('Canceled delete');
+        }
+      });
+
+      $scope.shouldShowDelete = false;
+
+
+    }
 
   }])
 

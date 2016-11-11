@@ -2,7 +2,7 @@
   <ion-header-bar>
     <h1 class="title">Create Event</h1>
     <div class="buttons">
-      <button class="button button-clear button-stable icon-left ion-android-close" ng-click="closeCreation()"></button>
+      <button class="button button-clear" ng-click="closeCreation()"></button>
     </div>
   </ion-header-bar>
   <ion-content ng-controller="EventController">
@@ -12,7 +12,7 @@
           <input type="text" placeholder="Event Name" ng-model="event.name">
         </label>
         <label class="item item-input">
-          <input type="date" placeholder="Date" ng-model="event.date">
+          <input type="date" ng-model="event.date">
         </label>
         <label class="item item-input">
         <input type="time" placeholder="Time" ng-model="event.time"
@@ -23,7 +23,7 @@
         </label>
         <label class="item item-input">
           <span class="input-label">Max. Participants</span>
-          <select ng-model="event.max">
+          <select ng-model="event.maxParticipants">
             <option value="" disabled selected>Please Choose...</option>
             <option ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" value="{{n}}">{{n}}</option>
           </select>
